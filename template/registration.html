@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='registration.css') }}">-->
+    <link rel="stylesheet" href="/static/registration.css">
+</head>
+<body>
+<div class="cross">
+    <a href="{{ url_for('home') }}">×</a>
+</div>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+<div class="notification">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+    <form action="/send_name" method="post">
+        <div class="registration">
+            <h1>Registration</h1>
+            <hr>
+            <label for="email" class="label">Email</label>
+            <input placeholder="Email..." type="email"
+                   name="email" id="email" required class="input">
+            <label for="username" class="label">Username</label>
+            <input placeholder="Username..." type="text"
+                   name="username" id="username" required class="input">
+            <label for="password" class="label">Password</label>
+            <input placeholder="Password..." type="password"
+                   name="password" id="password" required class="input">
+            <label for="password_again" class="label">Password again</label>
+            <input placeholder="Password again..." type="password"
+                   name="password_again" id="password_again" required class="input">
+            <input type="submit" value="Submit" class="submit">
+            <div class="sign_in">
+                <p>Already have an account? <a href="{{ url_for('sign_in') }}">Sign in</a></p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

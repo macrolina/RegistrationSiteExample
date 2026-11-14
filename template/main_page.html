@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+<div class="notification">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+<header>
+    <nav>
+        <h2>CompanyName</h2>
+    </nav>
+    <nav>
+        <a href="{{ url_for('sign_in') }}">Sign in</a>
+        <a href="{{ url_for('send_name') }}">Registration</a>
+    </nav>
+</header>
+<pre>
+    Welcome
+    to our website!
+</pre>
+<div class="footer">
+    <div>Example made by Macrolina</div>
+    <div>®CompanyName</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/static/registration.css">
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+<div class="notification">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="cross">
+    <a href="{{ url_for('home') }}">×</a>
+</div>
+<form action="/sign_in" method="post" class="signin">
+    <div class="registration">
+        <h1>Registration</h1>
+        <hr>
+        <label for="Email" class="label">Username/Email</label>
+        <input placeholder="Email..." type="email"
+               name="email" id="email" required class="input">
+        <label for="password" class="label">Password</label>
+        <input placeholder="Password..." type="password"
+               name="password" id="password" required class="input">
+        <input type="submit" value="Submit" class="submit">
+    </div>
+</form>
+</body>
+</html>
