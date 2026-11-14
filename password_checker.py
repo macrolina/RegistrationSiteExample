@@ -38,10 +38,6 @@ class Password:
         where H - length of password and L - length of used alphabet
         """
 
-        print(password)
-
-        print(not password)
-
         if not password:
             return None # No password = None
 
@@ -67,8 +63,6 @@ class Password:
         if word_found: # if word(s) is(are) found decline entropy by 40%
             entropy*=0.4
         entropy = round(entropy, 1)
-
-        print(entropy)
 
         # Checking of entropy bits
         if entropy<=50:
